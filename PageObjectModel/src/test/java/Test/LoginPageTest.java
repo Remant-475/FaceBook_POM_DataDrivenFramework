@@ -28,13 +28,13 @@ public class LoginPageTest extends Base {
 		}
 
 	}
-//	@Test(priority=0)
-//	public void validateTextBoxAllignentTest() {
-//		loginp = new LoginPage();
-//		loginp.validTextboxAlignment();
-//	}
 
-	@Test(priority=1)
+	/**
+	 * Method: To verify Home Page Title with Config data
+	 * 
+	 */
+
+	@Test(priority = 1)
 	public void validLoginPagewithConfigDataTest() {
 
 		loginp = new LoginPage();
@@ -43,23 +43,36 @@ public class LoginPageTest extends Base {
 		assertEquals(homePageTitle, "Facebook – log in or sign up");
 
 	}
-	@Test(priority=2)
+
+	/**
+	 * Method: To verify Home Page Title with Xlsx file
+	 * 
+	 */
+
+	@Test(priority = 2)
 	public void validLoginPageWithXlsxDataTest() {
 
 		loginp = new LoginPage();
-		loginp.LoginUserUsingXlsx();;
+		loginp.LoginUserUsingXlsx();
+		;
 		String homePageTitle = loginp.verifyHomePage();
 		assertEquals(homePageTitle, "Facebook – log in or sign up");
 
 	}
-	@Test
+
+	/**
+	 * Method: To verify Error message while entering Invalid credentials
+	 * 
+	 */
+	@Test(priority = 3)
 	public void validateInvalidLoginCred() {
 		loginp = new LoginPage();
-		message=loginp.validateInvalidLoginCred();
-		
+		message = loginp.validateInvalidLoginCred();
+
 		assertEquals(message, "The password that you've entered is incorrect. Forgotten password?");
-		
+
 	}
+
 	@SuppressWarnings("static-access")
 	@AfterMethod
 	public void terminateDriver() {
