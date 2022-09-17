@@ -48,48 +48,7 @@ public class Browser extends Base {
 		return data;
 		
 	}
-//	public void chromeLogin() {
-//		try {
-//			
-//			String url = prop.getProperty("baseURL");
-//			driver.get(url);
-//			driver.findElement(By.id("email")).sendKeys(prop.getProperty("emailId"));
-//			driver.findElement(By.id("pass")).sendKeys(prop.getProperty("password"));
-//			
-//
-//		} catch (Exception e) {
-//
-//			e.printStackTrace();
-//		}
 
-	
-//}
-//	@SuppressWarnings("static-access")
-//	@Test(dataProvider="LoginData")
-//	public void chromeLogin(String username,String password) {
-//		try {
-//			
-//			String url = prop.getProperty("baseURL");
-//			driver.get(url);
-//			driver.findElement(By.id("email")).sendKeys(username);
-//			driver.findElement(By.id("pass")).sendKeys(password);
-//			
-//
-//		} catch (Exception e) {
-//
-//			e.printStackTrace();
-//		}
-//		
-//
-//	
-//}
-	
-	
-//	@DataProvider(name="LoginData")
-//	public Object[][] loginData() {
-//		Object[][] data = utility.getloginData();
-//		return data;
-//	}
 	@Test
 	public void Login() {
 		try {
