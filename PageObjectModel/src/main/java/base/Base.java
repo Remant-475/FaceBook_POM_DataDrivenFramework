@@ -2,17 +2,22 @@ package base;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+
 import Utility.utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.HomePage;
 import pages.LoginPage;
-
+import pages.ProfilePage;
 public class Base {
 
 	protected static WebDriver driver;
@@ -26,19 +31,28 @@ public class Base {
 	protected static Object[][] data;
 	protected static LoginPage loginp;
 	protected static String message;
+	protected static ProfilePage profileP;
+	protected static HomePage homeP;
+	
 	static {
 
 		WebDriverManager.chromedriver().setup();
 	}
+	
+
 	protected final static String FILE_PATH = System.getProperty("user.dir") + File.separator + "src" + File.separator
 			+ "main" + File.separator + "resources" + File.separator + "repository" + File.separator
 			+ "LoginTestData.xlsx";
- 
+	
+	/**
+	 * Constructor: To Load the Properties file in file.io
+	 */
+	
 	public Base() {
 		try {
 			prop = new Properties();
 			file = new FileInputStream(
-					"C:\\Users\\ASUS\\eclipse-workspace\\PageObjectModel\\src\\main\\resources\\config.properties");
+					".\\src\\main\\resources\\repository\\config.properties");
 			prop.load(file);
 		} catch (Exception e) {
 			e.printStackTrace();

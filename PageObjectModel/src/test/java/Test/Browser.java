@@ -29,6 +29,11 @@ public class Browser extends Base {
 		WebDriverManager.chromedriver().setup();
 		WebDriverManager.firefoxdriver().setup();
 	}
+	
+	/**
+	 * Method: To Run Initialize method before running each Testcases
+	 */
+	
 	@BeforeClass
 	public void triggerDriver() {
 		try {
@@ -36,49 +41,53 @@ public class Browser extends Base {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	}
-	
-	@DataProvider(name="LoginData")
-	public Object[][] dataTest()
-	{
-		Object[][] data= new Object[2][2];
-		data[0][0]="mayuresh.sonar@gmail.com";
-		data[0][1]="Password1234567899";
-		return data;
-		
+
 	}
 
+	@DataProvider(name = "LoginData")
+	public Object[][] dataTest() {
+		Object[][] data = new Object[2][2];
+		data[0][0] = "mayuresh.sonar@gmail.com";
+		data[0][1] = "Password1234567899";
+		return data;
+
+	}
+
+	/**
+	 * Method: To 
+	 */
 	@Test
 	public void Login() {
 		try {
 			List<List<String>> values = new LinkedList<List<String>>();
 			values.addAll(utility.excelreader());
-		
-			
+
 			String url = prop.getProperty("baseURL");
 			driver.get(url);
-			System.out.println("Values from exel fle username:"+values.get(0).get(0));
+			System.out.println("Values from exel fle username:" + values.get(0).get(0));
 			driver.findElement(By.id("email")).sendKeys(values.get(0).get(0));
-			System.out.println("Values from exel fle password:"+values.get(0).get(1));
+			System.out.println("Values from exel fle password:" + values.get(0).get(1));
 			driver.findElement(By.id("pass")).sendKeys(values.get(0).get(1));
-		
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
-		
+
 	}
+	/**
+	 * Method: To Run Terminate method after running each Testcases
+	 */
+
 	@SuppressWarnings("static-access")
 	@AfterClass
 	public void terminateDriver() {
 		try {
-			
+
 			Thread.sleep(4000);
 			util.closedriver();
 		} catch (Exception e) {
-			
+
 		}
 	}
 }

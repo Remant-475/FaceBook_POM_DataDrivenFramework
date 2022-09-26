@@ -3,14 +3,17 @@ package Utility;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,6 +22,9 @@ import base.Base;
 
 public class utility extends Base {
 
+	/**
+	 * Method: To Initialize the WebDriver 
+	 */
 	public static void intilization(String browser) {
 		try {
 			
@@ -103,6 +109,24 @@ public class utility extends Base {
 		return values;
 	}
 
+	public static void takeScreenshot() {
+		try {
+		Date date=new Date(); 
+		//print actual date
+		String date1=date.toString();
+		System.out.println("Date is:" +date1);
+		String date2=date1.replaceAll(":", "_");
+		TakesScreenshot ts=(TakesScreenshot) driver;
+		
+		File srcFile=ts.getScreenshotAs(OutputType.FILE);
+		File destFile=new File("./Screenshot/"+ date2 +"_HomePage.png");
+		
+		FileUtils.copyFile(srcFile, destFile);
+	}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+	}
 	public static void closedriver() {
 
 		try {

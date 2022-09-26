@@ -2,6 +2,7 @@ package pages;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,11 @@ import base.Base;
 
 public class LoginPage extends Base {
 
+	
+	/**
+	 * /**
+	 * Constructor: To Initialize the WebElements generated from FindBy Annotation
+	 */
 	@FindBy(id = "email")
 	WebElement emailId;
 
@@ -22,23 +28,31 @@ public class LoginPage extends Base {
 	@FindBy(name = "login")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//a[aria-label='Home']")
+	@FindBy(xpath = "//a[@aria-label='Home']")
 	WebElement homebtn;
 
 	@FindBy(xpath = "//div[@class=\"clearfix _5466 _44mg\"]/div[2]")
 	WebElement ErrorMsg;
+	
+	/**
+	 * Constructor: To Initialize the WebElements generated from FindBy Annotation
+	 */
 	public LoginPage() {
 
 		PageFactory.initElements(driver, this);
 	}
 
+	/**
+	 * Method: To verify Home Page Title with Config data
+	 */
 	public void LoginUser() {
 		try {
 			emailId.sendKeys(prop.getProperty("emailId"));
-			Thread.sleep(500);
+			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 			password.sendKeys(prop.getProperty("password"));
-			Thread.sleep(500);
+			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 			loginBtn.click();
+			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 			homebtn.click();
 
 		} catch (Exception e) {
@@ -46,29 +60,38 @@ public class LoginPage extends Base {
 		}
 	}
 
+	/**
+	 * Method: To verify Home Page Title with Xlsx file
+	 */
 	public void LoginUserUsingXlsx() {
 		try {
 			List<List<String>> values= new LinkedList<List<String>>();
 			values.addAll(utility.excelreader());
 			emailId.sendKeys(values.get(0).get(0));
-			Thread.sleep(500);
+			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 			password.sendKeys(values.get(0).get(1));
-			Thread.sleep(500);
+			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);;
 			loginBtn.click();
+			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			homebtn.click();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Method: To verify Error message while entering Invalid credentials
+	 */
 	public String validateInvalidLoginCred() {
 		try {
 			List<List<String>> values= new LinkedList<List<String>>();
 			values.addAll(utility.excelreader());
 			emailId.sendKeys(values.get(1).get(0));
-			Thread.sleep(500);
+			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 			password.sendKeys(values.get(1).get(1));
-			Thread.sleep(500);
+			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 			loginBtn.click();
+		
 			
 			message=ErrorMsg.getText();
 		} catch (Exception e) {
@@ -76,27 +99,10 @@ public class LoginPage extends Base {
 		}
 		return message;
 	}
-	public void validTextboxAlignment() {
-		try {
-			int us_X = emailId.getLocation().getX();
-			int us_width = emailId.getSize().getWidth();
-			int us_height = emailId.getSize().getHeight();
-
-			int pass_X = password.getLocation().getX();
-			int pass_width = password.getSize().getWidth();
-			int pass_height = password.getSize().getHeight();
-
-			if (us_X == pass_X && us_width == pass_width && us_height == pass_height) {
-				System.out.println("EmailId and Password text box are in allignment");
-			} else {
-				System.out.println("EmailId and Password text box are not in allignment");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
+	
+	/**
+	 * Method: To verify Homepagetitle
+	 */
 	public String verifyHomePage() {
 		String homePageTitle = driver.getTitle();
 		return homePageTitle;
