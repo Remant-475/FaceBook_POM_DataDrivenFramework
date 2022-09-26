@@ -82,4 +82,22 @@ public class HomePage extends LoginPage {
 
 		}
 	}
+	
+	/**
+	 * Method: To Like post in facebook
+	 */
+	
+	public void userHomePageLikePost() {
+		emailId.sendKeys(prop.getProperty("emailId"));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		password.sendKeys(prop.getProperty("password"));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		loginBtn.click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		homebtn.click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		likebtn.click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	}
+	
 }
