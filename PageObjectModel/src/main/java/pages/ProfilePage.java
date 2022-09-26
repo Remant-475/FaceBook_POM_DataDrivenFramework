@@ -25,7 +25,9 @@ public class ProfilePage extends LoginPage{
 	WebElement savebtn;
 	
 	
-
+	/**
+	 * Method: To Upload profile image of user in facebook
+	 */
 	public void uploadUserProfileImage() {
 		try {
 			emailId.sendKeys(prop.getProperty("emailId"));

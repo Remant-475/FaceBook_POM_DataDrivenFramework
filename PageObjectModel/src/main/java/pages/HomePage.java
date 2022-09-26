@@ -27,6 +27,9 @@ public class HomePage extends LoginPage {
 	@FindBy(xpath = "(//div[@aria-label='Like'])[3]")
 	WebElement likebtn;
 
+	/**
+	 * Method: To post image in facebook
+	 */
 	public void userHomepageImagePost() {
 		try {
 			emailId.sendKeys(prop.getProperty("emailId"));
@@ -43,6 +46,34 @@ public class HomePage extends LoginPage {
 			Thread.sleep(5000);
 			Runtime.getRuntime()
 					.exec(System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\Autorun.exe")
+					.waitFor(50, TimeUnit.SECONDS);
+			Thread.sleep(5000);
+			postbtn.click();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		} catch (Exception e) {
+
+		}
+	}
+
+	/**
+	 * Method: To post video in facebook
+	 */
+	public void userHomePageVideoPost() {
+		try {
+			emailId.sendKeys(prop.getProperty("emailId"));
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			password.sendKeys(prop.getProperty("password"));
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			loginBtn.click();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			homebtn.click();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			photovideobtn.click();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			addbtn.click();
+			Thread.sleep(5000);
+			Runtime.getRuntime()
+					.exec(System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\\\autopost.exe")
 					.waitFor(50, TimeUnit.SECONDS);
 			Thread.sleep(5000);
 			postbtn.click();
