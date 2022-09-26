@@ -35,8 +35,6 @@ public class Listeners implements ITestListener {
 			System.out.println("onTestSkipped Method" +result.getName());
 		}
 
-		public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-			System.out.println("onTestFailedButWithinSuccessPercentage" +result.getName());
-		}
+		
 }
 

@@ -44,7 +44,7 @@ public class LoginPageTest extends Base {
 	 * Method: To Test Login Page is working or not using config file
 	 */
 
-	//@Test(priority = 1)
+	@Test(priority = 1)
 	public void validLoginPagewithConfigDataTest() {
 
 		log.info(
@@ -63,7 +63,7 @@ public class LoginPageTest extends Base {
 	 */
 
 
-	 //@Test(priority = 2)
+	 @Test(priority = 2)
 	
 	public void validLoginPageWithXlsxDataTest() {
 		log.info("****************************** starting test case for validating login page using XLSX file *****************************************");

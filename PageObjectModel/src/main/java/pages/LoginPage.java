@@ -16,7 +16,7 @@ public class LoginPage extends Base {
 
 	
 	/**
-	 * /**
+	 * 
 	 * Constructor: To Initialize the WebElements generated from FindBy Annotation
 	 */
 	@FindBy(id = "email")
