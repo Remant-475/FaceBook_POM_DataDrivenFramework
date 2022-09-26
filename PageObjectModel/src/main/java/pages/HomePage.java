@@ -100,4 +100,29 @@ public class HomePage extends LoginPage {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 	
+	/**
+	 * Method: To comment post in facebook
+	 */
+	public void userHomePageCommentPost() {
+		try {
+			emailId.sendKeys(prop.getProperty("emailId"));
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			password.sendKeys(prop.getProperty("password"));
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			loginBtn.click();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			homebtn.click();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			commentbox.sendKeys("nice");
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+			Robot robot = new Robot();
+
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+
+	}
 }
