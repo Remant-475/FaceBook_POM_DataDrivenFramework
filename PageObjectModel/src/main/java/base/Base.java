@@ -23,7 +23,9 @@ public class Base {
 	protected static WebDriver driver;
 	protected static WebElement element;
 	protected static FileInputStream file;
+	protected static FileInputStream file1;
 	protected static Properties prop;
+	protected static Properties prop1;
 	protected static utility util;
 	protected static FileInputStream excelfile;
 	protected static XSSFWorkbook xWorkBook;
@@ -37,6 +39,8 @@ public class Base {
 	static {
 
 		WebDriverManager.chromedriver().setup();
+		 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
+	        System.setProperty("current.date.time", dateFormat.format(new Date()));
 	}
 	
 
@@ -54,6 +58,11 @@ public class Base {
 			file = new FileInputStream(
 					".\\src\\main\\resources\\repository\\config.properties");
 			prop.load(file);
+			
+			prop1 = new Properties();
+			file1 = new FileInputStream(
+					".\\src\\main\\resources\\log4j.properties");
+			prop1.load(file1);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

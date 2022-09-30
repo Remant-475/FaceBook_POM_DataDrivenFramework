@@ -79,7 +79,7 @@ public class LoginPageTest extends Base {
 	 * Method: To Test Login Page is giving error message or not while inserting wrong crediantials
 	 */
 
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void validateInvalidLoginCred() {
 		loginp = new LoginPage();
 		message = loginp.validateInvalidLoginCred();

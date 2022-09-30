@@ -24,8 +24,14 @@ public class HomePage extends LoginPage {
 	@FindBy(xpath = "//div[@aria-label='Write a comment']")
 	WebElement commentbox;
 
-	@FindBy(xpath = "(//div[@aria-label='Like'])[3]")
+	@FindBy(xpath = "(//div[@aria-label='Like'])")
 	WebElement likebtn;
+	
+	@FindBy(xpath="//div[@class='rtxb060y hpj0pwwo lc19xlkw l4uc2m3f mfclru0v t7p7dqev']")
+	WebElement timelinebtn;
+	
+	@FindBy(xpath="//p[@class='cr00lzj9 kmwttqpk kjdc1dyq l7ghb35v m8h3af8h']")
+	WebElement timelinebox;
 
 	/**
 	 * Method: To post image in facebook
@@ -124,5 +130,20 @@ public class HomePage extends LoginPage {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void userHomePageStatusInfo() {
+		emailId.sendKeys(prop.getProperty("emailId"));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		password.sendKeys(prop.getProperty("password"));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		loginBtn.click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		homebtn.click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		timelinebtn.click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		timelinebox.sendKeys("Goodmorning");
+		postbtn.click();
 	}
 }

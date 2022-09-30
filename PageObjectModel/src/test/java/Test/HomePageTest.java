@@ -66,6 +66,11 @@ public class HomePageTest extends Base{
 		homeP.userHomePageCommentPost();
 	}
 	
+	@Test
+	public void statusinfo() {
+		homeP=new HomePage();
+		homeP.userHomePageStatusInfo();
+	}
 }
 
 
