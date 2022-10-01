@@ -2,19 +2,23 @@
 <testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-30T07:13:15 IST" name="Default suite" finished-at="2022-09-30T07:13:29 IST" duration-ms="13980">
+  <suite started-at="2022-10-01T07:35:21 IST" name="Default suite" finished-at="2022-10-01T07:35:54 IST" duration-ms="32507">
     <groups>
     </groups>
-    <test started-at="2022-09-30T07:13:15 IST" name="Default test" finished-at="2022-09-30T07:13:29 IST" duration-ms="13980">
+    <test started-at="2022-10-01T07:35:21 IST" name="Default test" finished-at="2022-10-01T07:35:54 IST" duration-ms="32507">
       <class name="Test.HomePageTest">
-        <test-method is-config="true" signature="triggerDriver()[pri:0, instance:Test.HomePageTest@2f16c6b3]" started-at="2022-09-30T07:13:16 IST" name="triggerDriver" finished-at="2022-09-30T07:13:21 IST" duration-ms="5021" status="PASS">
+        <test-method is-config="true" signature="triggerDriver()[pri:0, instance:Test.HomePageTest@21fd5faa]" started-at="2022-10-01T07:35:21 IST" name="triggerDriver" finished-at="2022-10-01T07:35:26 IST" duration-ms="4993" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- triggerDriver -->
-        <test-method signature="statusinfo()[pri:0, instance:Test.HomePageTest@2f16c6b3]" started-at="2022-09-30T07:13:21 IST" name="statusinfo" finished-at="2022-09-30T07:13:29 IST" duration-ms="8871" status="PASS">
+        <test-method signature="uploadVideoPost()[pri:0, instance:Test.HomePageTest@21fd5faa]" started-at="2022-10-01T07:35:26 IST" name="uploadVideoPost" finished-at="2022-10-01T07:35:44 IST" duration-ms="17579" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- statusinfo -->
+        </test-method> <!-- uploadVideoPost -->
+        <test-method is-config="true" signature="terminateDriver()[pri:0, instance:Test.HomePageTest@21fd5faa]" started-at="2022-10-01T07:35:44 IST" name="terminateDriver" finished-at="2022-10-01T07:35:54 IST" duration-ms="9875" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateDriver -->
       </class> <!-- Test.HomePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -5,8 +5,9 @@
     <classes>
       <class name="Test.HomePageTest">
         <methods>
-          <include name="statusinfo"/>
           <include name="triggerDriver"/>
+          <include name="terminateDriver"/>
+          <include name="likePost"/>
         </methods>
       </class> <!-- Test.HomePageTest -->
     </classes>

@@ -7,8 +7,11 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends LoginPage {
 
@@ -24,7 +27,7 @@ public class HomePage extends LoginPage {
 	@FindBy(xpath = "//div[@aria-label='Write a comment']")
 	WebElement commentbox;
 
-	@FindBy(xpath = "(//div[@aria-label='Like'])")
+	@FindBy(xpath = "(//div[@aria-label='Like'] div[contains(text(),'Captain rohit sharma')])")
 	WebElement likebtn;
 	
 	@FindBy(xpath="//div[@class='rtxb060y hpj0pwwo lc19xlkw l4uc2m3f mfclru0v t7p7dqev']")
@@ -38,24 +41,21 @@ public class HomePage extends LoginPage {
 	 */
 	public void userHomepageImagePost() {
 		try {
-			emailId.sendKeys(prop.getProperty("emailId"));
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			password.sendKeys(prop.getProperty("password"));
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			loginBtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			homebtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+			WebDriverWait wait= new WebDriverWait(driver,30);
+			
+			wait.until(ExpectedConditions.visibilityOf(photovideobtn));
 			photovideobtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			
 			addbtn.click();
-			Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOf(addbtn));
 			Runtime.getRuntime()
 					.exec(System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\Autorun.exe")
 					.waitFor(50, TimeUnit.SECONDS);
-			Thread.sleep(5000);
+			
 			postbtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(postbtn));
+			
 		} catch (Exception e) {
 
 		}
@@ -66,24 +66,19 @@ public class HomePage extends LoginPage {
 	 */
 	public void userHomePageVideoPost() {
 		try {
-			emailId.sendKeys(prop.getProperty("emailId"));
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			password.sendKeys(prop.getProperty("password"));
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			loginBtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			homebtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			WebDriverWait wait= new WebDriverWait(driver,50);
+			wait.until(ExpectedConditions.visibilityOf(photovideobtn));
 			photovideobtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(addbtn));
 			addbtn.click();
-			Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOf(addbtn));
 			Runtime.getRuntime()
 					.exec(System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\\\autopost.exe")
 					.waitFor(50, TimeUnit.SECONDS);
-			Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOf(postbtn));
 			postbtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			
+			
 		} catch (Exception e) {
 
 		}
@@ -94,16 +89,11 @@ public class HomePage extends LoginPage {
 	 */
 	
 	public void userHomePageLikePost() {
-		emailId.sendKeys(prop.getProperty("emailId"));
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		password.sendKeys(prop.getProperty("password"));
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		loginBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		homebtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		
+		WebDriverWait wait= new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.visibilityOf(likebtn));
 		likebtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 	
 	/**
@@ -111,17 +101,11 @@ public class HomePage extends LoginPage {
 	 */
 	public void userHomePageCommentPost() {
 		try {
-			emailId.sendKeys(prop.getProperty("emailId"));
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			password.sendKeys(prop.getProperty("password"));
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			loginBtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			homebtn.click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			
+			WebDriverWait wait= new WebDriverWait(driver,50);
+			wait.until(ExpectedConditions.visibilityOf(commentbox));
 			commentbox.sendKeys("nice");
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
+			
 			Robot robot = new Robot();
 
 			robot.keyPress(KeyEvent.VK_ENTER);
@@ -132,18 +116,17 @@ public class HomePage extends LoginPage {
 
 	}
 	
+	/**
+	 * Method: To Update Status in facebook
+	 */
 	public void userHomePageStatusInfo() {
-		emailId.sendKeys(prop.getProperty("emailId"));
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		password.sendKeys(prop.getProperty("password"));
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		loginBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		homebtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		WebDriverWait wait= new WebDriverWait(driver,50);
+		wait.until(ExpectedConditions.visibilityOf(timelinebtn));
 		timelinebtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(timelinebox));
 		timelinebox.sendKeys("Goodmorning");
+		wait.until(ExpectedConditions.visibilityOf(postbtn));
 		postbtn.click();
 	}
 }

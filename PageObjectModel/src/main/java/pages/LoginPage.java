@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utility.utility;
 import base.Base;
@@ -47,12 +49,15 @@ public class LoginPage extends Base {
 	 */
 	public void LoginUser() {
 		try {
+			
+			WebDriverWait wait= new WebDriverWait(driver,50);
+			wait.until(ExpectedConditions.visibilityOf(emailId));
 			emailId.sendKeys(prop.getProperty("emailId"));
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(password));
 			password.sendKeys(prop.getProperty("password"));
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(loginBtn));
 			loginBtn.click();
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(homebtn));
 			homebtn.click();
 
 		} catch (Exception e) {
@@ -65,14 +70,16 @@ public class LoginPage extends Base {
 	 */
 	public void LoginUserUsingXlsx() {
 		try {
+			WebDriverWait wait= new WebDriverWait(driver,50);
 			List<List<String>> values= new LinkedList<List<String>>();
 			values.addAll(utility.excelreader());
+			wait.until(ExpectedConditions.visibilityOf(emailId));
 			emailId.sendKeys(values.get(0).get(0));
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(password));
 			password.sendKeys(values.get(0).get(1));
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);;
+			wait.until(ExpectedConditions.visibilityOf(loginBtn));
 			loginBtn.click();
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(homebtn));
 			homebtn.click();
 
 		} catch (Exception e) {
@@ -84,12 +91,14 @@ public class LoginPage extends Base {
 	 */
 	public String validateInvalidLoginCred() {
 		try {
+			WebDriverWait wait= new WebDriverWait(driver,50);
 			List<List<String>> values= new LinkedList<List<String>>();
 			values.addAll(utility.excelreader());
+			wait.until(ExpectedConditions.visibilityOf(emailId));
 			emailId.sendKeys(values.get(1).get(0));
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(password));
 			password.sendKeys(values.get(1).get(1));
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(loginBtn));
 			loginBtn.click();
 		
 			
@@ -104,7 +113,7 @@ public class LoginPage extends Base {
 	 * Method: To verify Homepagetitle
 	 */
 	public String verifyHomePage() {
-		String homePageTitle = driver.getTitle();
+		String homePageTitle = driver.getTitle(); 
 		return homePageTitle;
 	}
 

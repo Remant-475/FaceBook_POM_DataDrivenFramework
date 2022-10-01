@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.Base;
 
@@ -30,20 +32,15 @@ public class ProfilePage extends LoginPage{
 	 */
 	public void uploadUserProfileImage() {
 		try {
-			emailId.sendKeys(prop.getProperty("emailId"));
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-			password.sendKeys(prop.getProperty("password"));
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-			loginBtn.click();
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			WebDriverWait wait= new WebDriverWait(driver,50);
+			wait.until(ExpectedConditions.visibilityOf(profilebtn));
 			profilebtn.click();
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(upldbtn));
 			upldbtn.click();
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(uploadphotobtn));
 			uploadphotobtn.click();
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 			Runtime.getRuntime().exec("C:\\Users\\ASUS\\eclipse-workspace\\PageObjectModel\\src\\main\\resources\\repository\\Autorun.exe");
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			wait.until(ExpectedConditions.visibilityOf(savebtn));
 			savebtn.click();
 			
 		

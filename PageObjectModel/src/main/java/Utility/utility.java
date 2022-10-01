@@ -87,6 +87,9 @@ public class utility extends Base {
 
 	}
 
+	/**
+	 * Method: To read data from XLSX file
+	 */
 	public static List<List<String>> excelreader() throws IOException {
 
 		List<List<String>> values = new LinkedList<List<String>>();
@@ -109,6 +112,10 @@ public class utility extends Base {
 		return values;
 	}
 
+	
+	/**
+	 * Method: To Take Screenshot 
+	 */
 	public static void takeScreenshot() {
 		try {
 		Date date=new Date(); 

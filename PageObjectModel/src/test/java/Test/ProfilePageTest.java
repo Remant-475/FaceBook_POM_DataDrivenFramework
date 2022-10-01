@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Utility.utility;
@@ -11,6 +12,7 @@ import base.Base;
 import pages.LoginPage;
 import pages.ProfilePage;
 
+@Listeners(Utility.Listeners.class)
 public class ProfilePageTest extends Base {
 
 	public ProfilePageTest() {
@@ -33,6 +35,8 @@ public class ProfilePageTest extends Base {
 	 */
 	@Test
 	public void UploadProfileImage() {
+		loginp=new LoginPage();
+		loginp.LoginUser();
 		profileP = new ProfilePage();
 		profileP.uploadUserProfileImage();
 
