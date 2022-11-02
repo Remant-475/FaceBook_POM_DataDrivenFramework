@@ -1,5 +1,8 @@
 package Test;
 
+import static org.testng.Assert.assertEquals;
+
+import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -17,13 +20,16 @@ public class HomePageTest extends Base {
 		super();
 	}
 
+	final static Logger log = Logger.getLogger(HomePageTest.class);
 	/**
 	 * Method: To Run Initialize method before running each Testcases
 	 * 
 	 */
 	@BeforeMethod
 	public void triggerDriver() {
+		log.info("****************************** Starting browser  *****************************************");
 		try {
+			
 			utility.intilization(prop.getProperty("browser"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,12 +42,18 @@ public class HomePageTest extends Base {
 	 * 
 	 */
 
-	@Test
+	@Test(priority=1)
 	public void uploadImagePost() {
+		log.info(
+				"****************************** starting test case for posting image  *****************************************");
 		loginp=new LoginPage();
 		loginp.LoginUser();
 		homeP = new HomePage();
 		homeP.userHomepageImagePost();
+		
+		String PostTime=homeP.verifyImagePost();
+		System.out.println("posting time : "+ PostTime);
+		assertEquals(PostTime,"1 m");
 
 	}
 
@@ -50,48 +62,40 @@ public class HomePageTest extends Base {
 	 * 
 	 */
 
-	@Test
+	@Test(priority=2)
 	public void uploadVideoPost() {
+		log.info(
+				"****************************** starting test case for posting video  *****************************************");
 		loginp=new LoginPage();
 		loginp.LoginUser();
 		homeP = new HomePage();
 		homeP.userHomePageVideoPost();
+		
+		
+		String PostTime=homeP.verifyVideoPost();
+		System.out.println("posting time : "+ PostTime);
+		assertEquals(PostTime,"1 m");
 	}
+	
 
-	/**
-	 * Method: To like post in facebook
-	 * 
-	 */
 
-	@Test
-	public void likePost() {
-		loginp=new LoginPage();
-		loginp.LoginUser();
-		homeP = new HomePage();
-		homeP.userHomePageLikePost();
-	}
-
-	/**
-	 * Method: To comment post in facebook
-	 * 
-	 */
-	@Test
-	public void commentPost() {
-		loginp=new LoginPage();
-		loginp.LoginUser();
-		homeP = new HomePage();
-		homeP.userHomePageCommentPost();
-	}
-
+	
 	/**
 	 * Method: To update status in facebook
 	 */
-	@Test
+	@Test(priority=3)
 	public void statusinfo() {
+		log.info(
+				"****************************** starting test case for updating the status  *****************************************");
 		loginp=new LoginPage();
 		loginp.LoginUser();
 		homeP = new HomePage();
 		homeP.userHomePageStatusInfo();
+		
+		String PostTime=homeP.verifyStatusPost();
+		System.out.println("posting time : "+ PostTime);
+		assertEquals(PostTime,"1 m");
+		
 	}
 
 	/**
@@ -101,6 +105,8 @@ public class HomePageTest extends Base {
 	@AfterMethod
 	public void terminateDriver() {
 		try {
+			log.info(
+					"****************************** Terminating the Browser  *****************************************");
 
 			Thread.sleep(4000);
 			util.closedriver();

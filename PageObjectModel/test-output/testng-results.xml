@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-10-01T07:35:21 IST" name="Default suite" finished-at="2022-10-01T07:35:54 IST" duration-ms="32507">
+  <suite started-at="2022-10-28T23:09:28 IST" name="Default suite" finished-at="2022-10-28T23:09:57 IST" duration-ms="28893">
     <groups>
     </groups>
-    <test started-at="2022-10-01T07:35:21 IST" name="Default test" finished-at="2022-10-01T07:35:54 IST" duration-ms="32507">
-      <class name="Test.HomePageTest">
-        <test-method is-config="true" signature="triggerDriver()[pri:0, instance:Test.HomePageTest@21fd5faa]" started-at="2022-10-01T07:35:21 IST" name="triggerDriver" finished-at="2022-10-01T07:35:26 IST" duration-ms="4993" status="PASS">
+    <test started-at="2022-10-28T23:09:28 IST" name="Default test" finished-at="2022-10-28T23:09:57 IST" duration-ms="28893">
+      <class name="Test.ProfilePageTest">
+        <test-method is-config="true" signature="triggerDriver()[pri:0, instance:Test.ProfilePageTest@53941c2f]" started-at="2022-10-28T23:09:28 IST" name="triggerDriver" finished-at="2022-10-28T23:09:35 IST" duration-ms="6414" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- triggerDriver -->
-        <test-method signature="uploadVideoPost()[pri:0, instance:Test.HomePageTest@21fd5faa]" started-at="2022-10-01T07:35:26 IST" name="uploadVideoPost" finished-at="2022-10-01T07:35:44 IST" duration-ms="17579" status="PASS">
+        <test-method signature="commentPost()[pri:2, instance:Test.ProfilePageTest@53941c2f]" started-at="2022-10-28T23:09:35 IST" name="commentPost" finished-at="2022-10-28T23:09:49 IST" duration-ms="14633" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- uploadVideoPost -->
-        <test-method is-config="true" signature="terminateDriver()[pri:0, instance:Test.HomePageTest@21fd5faa]" started-at="2022-10-01T07:35:44 IST" name="terminateDriver" finished-at="2022-10-01T07:35:54 IST" duration-ms="9875" status="PASS">
+        </test-method> <!-- commentPost -->
+        <test-method is-config="true" signature="terminateDriver()[pri:0, instance:Test.ProfilePageTest@53941c2f]" started-at="2022-10-28T23:09:49 IST" name="terminateDriver" finished-at="2022-10-28T23:09:57 IST" duration-ms="7742" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- terminateDriver -->
-      </class> <!-- Test.HomePageTest -->
+      </class> <!-- Test.ProfilePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

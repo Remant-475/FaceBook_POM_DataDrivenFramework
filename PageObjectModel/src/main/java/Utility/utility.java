@@ -7,13 +7,16 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -134,6 +137,13 @@ public class utility extends Base {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	/**
+	 * Method: To close driver
+	 */
+	
 	public static void closedriver() {
 
 		try {
@@ -143,4 +153,34 @@ public class utility extends Base {
 			e.printStackTrace();
 		}
 	}
+	
+	public static String RandomString() {
+        String randomString = null;
+        try {
+            String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            randomString = "";
+            int length = 5;
+            //crate random string object.
+            Random rand = new Random();
+            //character array ie each index has a value.bcz fill that array random characters
+            char[] text = new char[length];
+            //add individual int character
+for (int i = 0; i < length; i++) {
+                //genrate random index numbers.
+                text[i] = characters.charAt(rand.nextInt(characters.length()));
+            }
+            //text array adding each char one by one to randomstring util array is done
+            for (int i = 0; i < text.length; i++) {
+                randomString += text[i];
+            }
+            System.out.println("Random :"+randomString);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+return randomString;
+
+
+
+    }
 }

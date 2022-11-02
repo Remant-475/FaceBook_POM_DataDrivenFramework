@@ -1,0 +1,7 @@
+Sleep(500)
+ControlFocus("Open","","Edit1")
+Sleep(500)
+ControlSetText("Open","","Edit1","C:\Users\ASUS\Downloads\batman.jpeg")
+Sleep(500)
+ControlClick("Open","","Button1")
+Sleep(500)

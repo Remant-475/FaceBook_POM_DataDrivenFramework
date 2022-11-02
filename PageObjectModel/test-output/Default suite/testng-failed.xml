@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Test.HomePageTest">
+      <class name="Test.ProfilePageTest">
         <methods>
+          <include name="UploadProfileImage"/>
           <include name="triggerDriver"/>
           <include name="terminateDriver"/>
-          <include name="likePost"/>
         </methods>
-      </class> <!-- Test.HomePageTest -->
+      </class> <!-- Test.ProfilePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

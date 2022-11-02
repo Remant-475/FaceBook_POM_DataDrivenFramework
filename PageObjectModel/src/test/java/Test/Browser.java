@@ -44,7 +44,7 @@ public class Browser extends Base {
 
 	}
 
-	@DataProvider(name = "LoginData")
+	@Test @DataProvider(name = "LoginData")
 	public Object[][] dataTest() {
 		Object[][] data = new Object[2][2];
 		data[0][0] = "mayuresh.sonar@gmail.com";
@@ -54,7 +54,7 @@ public class Browser extends Base {
 	}
 
 	/**
-	 * Method: To 
+	 * Method: To Read Data From XlSX file
 	 */
 	@Test
 	public void Login() {

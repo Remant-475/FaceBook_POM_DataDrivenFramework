@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>10/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Sep 28 08:38:15 IST 2022</td>
+<td>Started on:</td><td>Sat Oct 15 11:06:35 IST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>8 seconds (8756 ms)</td>
+<tr><td>Total time:</td><td>305 seconds (305817 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,58 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Test.LoginPageTest.validateInvalidLoginCred()'><b>validateInvalidLoginCred</b><br>Test class: Test.LoginPageTest</td>
+<td><div><pre>java.lang.AssertionError: expected [he password that you&apos;ve entered is incorrect. Forgotten password?] but found [The password that you&apos;ve entered is incorrect. Forgotten password?]
+	at Test.LoginPageTest.validateInvalidLoginCred(LoginPageTest.java:89)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2047799833", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2047799833'><pre>java.lang.AssertionError: expected [he password that you&apos;ve entered is incorrect. Forgotten password?] but found [The password that you&apos;ve entered is incorrect. Forgotten password?]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at Test.LoginPageTest.validateInvalidLoginCred(LoginPageTest.java:89)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>6</td>
+<td>Test.LoginPageTest@6ed3f258</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,10 +127,55 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Test.Browser.Login()'><b>Login</b><br>Test class: Test.Browser</td>
+<td title='Test.FindFriendTest.FriendFindPost()'><b>FriendFindPost</b><br>Test class: Test.FindFriendTest</td>
 <td></td>
-<td>1</td>
-<td>Test.Browser@54227100</td></tr>
+<td>10</td>
+<td>Test.FindFriendTest@19835e64</td></tr>
+<tr>
+<td title='Test.MarketPlaceTest.Market()'><b>Market</b><br>Test class: Test.MarketPlaceTest</td>
+<td></td>
+<td>11</td>
+<td>Test.MarketPlaceTest@68b32e3e</td></tr>
+<tr>
+<td title='Test.ProfilePageTest.UploadProfileImage()'><b>UploadProfileImage</b><br>Test class: Test.ProfilePageTest</td>
+<td></td>
+<td>20</td>
+<td>Test.ProfilePageTest@30af5b6b</td></tr>
+<tr>
+<td title='Test.ProfilePageTest.commentPost()'><b>commentPost</b><br>Test class: Test.ProfilePageTest</td>
+<td></td>
+<td>13</td>
+<td>Test.ProfilePageTest@30af5b6b</td></tr>
+<tr>
+<td title='Test.ProfilePageTest.likePost()'><b>likePost</b><br>Test class: Test.ProfilePageTest</td>
+<td></td>
+<td>12</td>
+<td>Test.ProfilePageTest@30af5b6b</td></tr>
+<tr>
+<td title='Test.HomePageTest.statusinfo()'><b>statusinfo</b><br>Test class: Test.HomePageTest</td>
+<td></td>
+<td>12</td>
+<td>Test.HomePageTest@8ad6665</td></tr>
+<tr>
+<td title='Test.HomePageTest.uploadImagePost()'><b>uploadImagePost</b><br>Test class: Test.HomePageTest</td>
+<td></td>
+<td>34</td>
+<td>Test.HomePageTest@8ad6665</td></tr>
+<tr>
+<td title='Test.HomePageTest.uploadVideoPost()'><b>uploadVideoPost</b><br>Test class: Test.HomePageTest</td>
+<td></td>
+<td>49</td>
+<td>Test.HomePageTest@8ad6665</td></tr>
+<tr>
+<td title='Test.LoginPageTest.validLoginPageWithXlsxDataTest()'><b>validLoginPageWithXlsxDataTest</b><br>Test class: Test.LoginPageTest</td>
+<td></td>
+<td>6</td>
+<td>Test.LoginPageTest@6ed3f258</td></tr>
+<tr>
+<td title='Test.LoginPageTest.validLoginPagewithConfigDataTest()'><b>validLoginPagewithConfigDataTest</b><br>Test class: Test.LoginPageTest</td>
+<td></td>
+<td>5</td>
+<td>Test.LoginPageTest@6ed3f258</td></tr>
 </table><p>
 </body>
 </html>

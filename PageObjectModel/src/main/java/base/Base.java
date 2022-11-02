@@ -15,8 +15,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utility.utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.FindFriendPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.MarketPlacePage;
 import pages.ProfilePage;
 public class Base {
 
@@ -35,7 +37,8 @@ public class Base {
 	protected static String message;
 	protected static ProfilePage profileP;
 	protected static HomePage homeP;
-	
+	protected static FindFriendPage findfriend;
+	protected static MarketPlacePage marketp;
 	
 	static {
 

@@ -24,38 +24,55 @@ public class HomePage extends LoginPage {
 	@FindBy(xpath = "//span[contains(text(),'Post')]")
 	WebElement postbtn;
 
-	@FindBy(xpath = "//div[@aria-label='Write a comment']")
-	WebElement commentbox;
-
-	@FindBy(xpath = "(//div[@aria-label='Like'] div[contains(text(),'Captain rohit sharma')])")
-	WebElement likebtn;
+	@FindBy(xpath = "//a[@aria-label='Bob Kumar']")
+	WebElement profilebtn;
 	
-	@FindBy(xpath="//div[@class='rtxb060y hpj0pwwo lc19xlkw l4uc2m3f mfclru0v t7p7dqev']")
+	@FindBy(xpath="//a[@aria-label='Notifications, 1 unread']")
+	WebElement notificationbtn;
+	
+	@FindBy(xpath = "//span[@class='x1lliihq x6ikm8r x10wlt62 x1n2onr6']")
 	WebElement timelinebtn;
-	
-	@FindBy(xpath="//p[@class='cr00lzj9 kmwttqpk kjdc1dyq l7ghb35v m8h3af8h']")
-	WebElement timelinebox;
 
+	@FindBy(xpath = "//div[@aria-label=\"What's on your mind, Bob?\"]")
+	WebElement timelinebox;
+	
+	@FindBy(xpath = " //div[@aria-label='Feeling/activity']")
+	WebElement feelingbtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'happy')]")
+	WebElement happybtn;
+	
+	@FindBy(xpath = "//i[@aria-label='Insert an emoji']")
+	WebElement emojibtn;
+	
+	@FindBy(xpath = "//img[@alt='😊']")
+	WebElement happyemojibtn;
+	
+	
+	
+	 
 	/**
 	 * Method: To post image in facebook
 	 */
 	public void userHomepageImagePost() {
 		try {
 
-			WebDriverWait wait= new WebDriverWait(driver,30);
-			
-			wait.until(ExpectedConditions.visibilityOf(photovideobtn));
+			WebDriverWait wait = new WebDriverWait(driver, 30);
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(photovideobtn));
 			photovideobtn.click();
-			
+			wait.until(ExpectedConditions.visibilityOfAllElements(addbtn));
 			addbtn.click();
-			wait.until(ExpectedConditions.visibilityOf(addbtn));
+
 			Runtime.getRuntime()
 					.exec(System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\Autorun.exe")
 					.waitFor(50, TimeUnit.SECONDS);
-			
-			postbtn.click();
+			Thread.sleep(10000);
 			wait.until(ExpectedConditions.visibilityOf(postbtn));
-			
+			postbtn.click();
+			Thread.sleep(10000);
+			profilebtn.click();
+
 		} catch (Exception e) {
 
 		}
@@ -66,67 +83,70 @@ public class HomePage extends LoginPage {
 	 */
 	public void userHomePageVideoPost() {
 		try {
-			WebDriverWait wait= new WebDriverWait(driver,50);
+			WebDriverWait wait = new WebDriverWait(driver, 50);
 			wait.until(ExpectedConditions.visibilityOf(photovideobtn));
 			photovideobtn.click();
 			wait.until(ExpectedConditions.visibilityOf(addbtn));
 			addbtn.click();
 			wait.until(ExpectedConditions.visibilityOf(addbtn));
 			Runtime.getRuntime()
-					.exec(System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\\\autopost.exe")
+					.exec(System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\autopostvideo.exe")
 					.waitFor(50, TimeUnit.SECONDS);
-			wait.until(ExpectedConditions.visibilityOf(postbtn));
+			Thread.sleep(5000);
 			postbtn.click();
-			
-			
+			Thread.sleep(15000);
+			driver.navigate().refresh();
+			notificationbtn.click();
+			Thread.sleep(2000);
+			profilebtn.click();
+
 		} catch (Exception e) {
 
 		}
 	}
-	
 	/**
-	 * Method: To Like post in facebook
+	 * Method: To verify image post in facebook
 	 */
-	
-	public void userHomePageLikePost() {
-		
-		
-		WebDriverWait wait= new WebDriverWait(driver,50);
-		wait.until(ExpectedConditions.visibilityOf(likebtn));
-		likebtn.click();
+	public String verifyImagePost() {
+		WebElement img = driver.findElement(By.xpath("//a[@aria-label='1 m']"));
+
+		String PostTime = img.getText();
+		System.out.println(PostTime);
+		return PostTime;
 	}
-	
+
 	/**
-	 * Method: To comment post in facebook
+	 * Method: To verify video  post in facebook
 	 */
-	public void userHomePageCommentPost() {
-		try {
-			
-			WebDriverWait wait= new WebDriverWait(driver,50);
-			wait.until(ExpectedConditions.visibilityOf(commentbox));
-			commentbox.sendKeys("nice");
-			
-			Robot robot = new Robot();
+	public String verifyVideoPost() {
+		WebElement img = driver.findElement(By.xpath("//a[@aria-label='1 m']"));
 
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-		} catch (AWTException e) {
-			e.printStackTrace();
-		}
-
+		String PostTime = img.getText();
+		System.out.println(PostTime);
+		return PostTime;
 	}
-	
+
+	/**
+	 * Method: To verify Status post in facebook
+	 */
+	public String verifyStatusPost() {
+		WebElement img = driver.findElement(By.xpath("//a[@aria-label='1 m']"));
+
+		String PostTime = img.getText();
+		System.out.println(PostTime);
+		return PostTime;
+	}
+
 	/**
 	 * Method: To Update Status in facebook
 	 */
 	public void userHomePageStatusInfo() {
-		
-		WebDriverWait wait= new WebDriverWait(driver,50);
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
 		wait.until(ExpectedConditions.visibilityOf(timelinebtn));
 		timelinebtn.click();
 		wait.until(ExpectedConditions.visibilityOf(timelinebox));
-		timelinebox.sendKeys("Goodmorning");
-		wait.until(ExpectedConditions.visibilityOf(postbtn));
+		timelinebox.sendKeys("Good morning");
 		postbtn.click();
 	}
 }

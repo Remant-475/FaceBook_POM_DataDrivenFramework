@@ -8,6 +8,7 @@ import java.util.Date;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Utility.utility;
@@ -15,6 +16,7 @@ import base.Base;
 
 import pages.LoginPage;
 
+@Listeners(Utility.Listeners.class)
 public class LoginPageTest extends Base {
 
 	public LoginPageTest() {
@@ -79,7 +81,7 @@ public class LoginPageTest extends Base {
 	 * Method: To Test Login Page is giving error message or not while inserting wrong crediantials
 	 */
 
-	//@Test(priority = 3)
+	@Test(priority = 3)
 	public void validateInvalidLoginCred() {
 		loginp = new LoginPage();
 		message = loginp.validateInvalidLoginCred();
@@ -87,6 +89,8 @@ public class LoginPageTest extends Base {
 		assertEquals(message, "he password that you've entered is incorrect. Forgotten password?");
 
 	}
+	
+
 
 	/**
 	 * Method: To Run Terminate method after running each Testcases

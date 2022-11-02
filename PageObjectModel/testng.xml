@@ -11,6 +11,10 @@
     <classes>
     
       <class name="Test.LoginPageTest"/>
+       <class name="Test.HomePageTest"/>
+        <class name="Test.ProfilePageTest"/>
+         <class name="Test.FindFriendTest"/>
+          <class name="Test.MarketPlaceTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
