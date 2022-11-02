@@ -109,7 +109,7 @@ public void userLikePost() {
 }
 	
 	/**
-	 * Method: To comment post in facebook
+	 * Method: To comment post in facebook .
 	 */
 	public void userCommentPost() {
 		try {
