@@ -136,7 +136,7 @@ public void userLikePost() {
 	}
 	
 	/**
-	 * Method: To verify comment in facebook
+	 * Method: To verify comment in facebook .
 	 */
 	public String verifycommentPost() {
 		WebElement comm=driver.findElement(By.xpath("(//ul)[2]/li[last()]/div/div/div/div/div/div/div/div/div/span/div/div"));
